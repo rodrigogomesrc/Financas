@@ -1,4 +1,3 @@
-package br.imd.ufrn.financas.visao;
 
 public class Financas {
 
