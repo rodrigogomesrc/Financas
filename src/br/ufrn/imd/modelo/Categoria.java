@@ -1,4 +1,4 @@
-package br.imd.ufrn.financas.modelo;
+package br.ufrn.imd.modelo;
 
 public class Categoria {
 	

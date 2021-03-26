@@ -1,9 +1,9 @@
-package br.imd.ufrn.financas.controle;
+package br.ufrn.imd.dao;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
-import br.imd.ufrn.financas.modelo.Categoria;
+import br.ufrn.imd.modelo.Categoria;
+
 
 public class CategoriaDAO {
 	
@@ -29,11 +29,17 @@ public class CategoriaDAO {
 		return this.categorias;
 	}
 	
-	/*
-	public Optional<Categoria> getCategoria(String categoriaId){
-		
+	public Categoria getCategoria(String idCategoria) {
+		for(Categoria c: this.categorias) {
+			if(c.getId().equals(idCategoria)) {
+				return c;
+			}
+		}
+		return null;
 	}
-	*/
 	
+	public int getNewCategoriaId(){
+		return this.categorias.size();
+	}
 
 }

@@ -1,9 +1,11 @@
-package br.imd.ufrn.financas.modelo;
+package br.ufrn.imd.modelo;
+
+import java.util.Date;
 
 public class Movimentacao {
 
 	private String id;
-	private Data data;
+	private Date data;
 	private String categoriaId;
 	private double valorMovimentacao;
 	private short tipoMovimentacao;
@@ -16,11 +18,11 @@ public class Movimentacao {
 		this.id = id;
 	}
 	
-	public Data getData() {
+	public Date getData() {
 		return data;
 	}
 	
-	public void setData(Data data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 	

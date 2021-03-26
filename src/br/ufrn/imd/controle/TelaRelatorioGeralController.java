@@ -1,4 +1,4 @@
-package br.imd.ufrn.financas.controle;
+package br.ufrn.imd.controle;
 
 public class TelaRelatorioGeralController {
 
