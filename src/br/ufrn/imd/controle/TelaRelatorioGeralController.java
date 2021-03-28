@@ -11,34 +11,34 @@ public class TelaRelatorioGeralController {
 	private Stage relatorioGeralStage;
 
 	 @FXML
-	    private Button btnListarGastosCategoria;
+	 private Button btnListarGastosCategoria;
 
-	    @FXML
-	    private Button btnListarGanhosCategoria;
+	 @FXML
+	 private Button btnListarGanhosCategoria;
 
-	    @FXML
-	    private Button btnListarGeral;
+	 @FXML
+	 private Button btnListarGeral;
 
-	    @FXML
-	    private TextArea relMensalTextArea;
+	 @FXML
+	 private TextArea relMensalTextArea;
 
-	    @FXML
-	    void listarGanhosCategoria(ActionEvent event) {
+	 @FXML
+	 void listarGanhosCategoria(ActionEvent event) {
 
-	    }
+	 }
 
-	    @FXML
-	    void listarGastosCategoria(ActionEvent event) {
+	 @FXML
+	 void listarGastosCategoria(ActionEvent event) {
 
-	    }
+	 }
 
-	    @FXML
-	    void listarGeral(ActionEvent event) {
+	 @FXML
+	 void listarGeral(ActionEvent event) {
 
-	    }
+	 }
     
-    public void setRelatorioGeralStage(Stage relatorioGeralStage) {
-		this.relatorioGeralStage = relatorioGeralStage;
-	}
+	 public void setRelatorioGeralStage(Stage relatorioGeralStage) {
+		 this.relatorioGeralStage = relatorioGeralStage;
+	 }
 
 }

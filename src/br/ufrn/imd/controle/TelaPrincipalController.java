@@ -64,7 +64,7 @@ public class TelaPrincipalController {
     void abrirTelaRelatorioAnual(ActionEvent event) throws IOException {
     	
     	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(TelaRelatorioMensalController.class.getResource("/br/ufrn/imd/visao/TelaRelatorioAnual.fxml"));
+    	loader.setLocation(TelaRelatorioAnualController.class.getResource("/br/ufrn/imd/visao/TelaRelatorioAnual.fxml"));
     	AnchorPane page = (AnchorPane) loader.load();
     	
     	// Criando um novo Stage
@@ -84,7 +84,7 @@ public class TelaPrincipalController {
     void abrirTelaRelatorioGeral(ActionEvent event) throws IOException {
     	
     	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(TelaRelatorioMensalController.class.getResource("/br/ufrn/imd/visao/TelaRelatorioGeral.fxml"));
+    	loader.setLocation(TelaRelatorioGeralController.class.getResource("/br/ufrn/imd/visao/TelaRelatorioGeral.fxml"));
     	AnchorPane page = (AnchorPane) loader.load();
     	
     	// Criando um novo Stage
@@ -130,8 +130,24 @@ public class TelaPrincipalController {
     }
     
     @FXML
-    void abrirTelaCadastroGanho(ActionEvent event) {
-    	//
+    void abrirTelaCadastroGanho(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(TelaCadastroGanhoController.class.getResource("/br/ufrn/imd/visao/TelaCadastroGanho.fxml"));
+    	AnchorPane page = (AnchorPane) loader.load();
+    	
+    	// Criando um novo Stage
+    	Stage cadastroGanhoStage = new Stage();
+    	cadastroGanhoStage.setTitle("Cadastro de Ganho");
+    	cadastroGanhoStage.setResizable(false);
+    	Scene scene = new Scene(page);
+    	cadastroGanhoStage.setScene(scene);
+    	
+    	// Setando o Controle 
+    	TelaCadastroGanhoController controller = loader.getController();
+    	controller.setCadastroGanhoStage(cadastroGanhoStage);
+    	cadastroGanhoStage.showAndWait();
+    	
     }
 
 
