@@ -14,7 +14,7 @@ public class Financas extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("visao/TelaPrincipal.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.setTitle("Controle de Cadastros v1.0");
+			stage.setTitle("Gerenciador de Finanças");
 			stage.setResizable(false);
 			stage.show();
 
