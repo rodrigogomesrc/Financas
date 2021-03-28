@@ -61,8 +61,23 @@ public class TelaPrincipalController {
     }
 
     @FXML
-    void abrirTelaRelatorioAnual(ActionEvent event) {
-    	//
+    void abrirTelaRelatorioAnual(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(TelaRelatorioMensalController.class.getResource("/br/ufrn/imd/visao/TelaRelatorioAnual.fxml"));
+    	AnchorPane page = (AnchorPane) loader.load();
+    	
+    	// Criando um novo Stage
+    	Stage relatorioAnualStage = new Stage();
+    	relatorioAnualStage.setTitle("Relatorio Anual");
+    	relatorioAnualStage.setResizable(false);
+    	Scene scene = new Scene(page);
+    	relatorioAnualStage.setScene(scene);
+    	
+    	// Setando o Controle 
+    	TelaRelatorioAnualController controller = loader.getController();
+    	controller.setRelatorioAnualStage(relatorioAnualStage);
+    	relatorioAnualStage.showAndWait();
     }
 
     @FXML
