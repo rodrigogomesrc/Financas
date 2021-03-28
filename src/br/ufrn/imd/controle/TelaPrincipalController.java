@@ -69,7 +69,7 @@ public class TelaPrincipalController {
     	
     	// Criando um novo Stage
     	Stage relatorioAnualStage = new Stage();
-    	relatorioAnualStage.setTitle("Relatorio Anual");
+    	relatorioAnualStage.setTitle("Relatorio Geral");
     	relatorioAnualStage.setResizable(false);
     	Scene scene = new Scene(page);
     	relatorioAnualStage.setScene(scene);
@@ -81,8 +81,23 @@ public class TelaPrincipalController {
     }
 
     @FXML
-    void abrirTelaRelatorioGeral(ActionEvent event) {
-    	//
+    void abrirTelaRelatorioGeral(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(TelaRelatorioMensalController.class.getResource("/br/ufrn/imd/visao/TelaRelatorioGeral.fxml"));
+    	AnchorPane page = (AnchorPane) loader.load();
+    	
+    	// Criando um novo Stage
+    	Stage relatorioGeralStage = new Stage();
+    	relatorioGeralStage.setTitle("Relatorio Mensal");
+    	relatorioGeralStage.setResizable(false);
+    	Scene scene = new Scene(page);
+    	relatorioGeralStage.setScene(scene);
+    	
+    	// Setando o Controle 
+    	TelaRelatorioGeralController controller = loader.getController();
+    	controller.setRelatorioGeralStage(relatorioGeralStage);
+    	relatorioGeralStage.showAndWait();
     }
 
     /*
