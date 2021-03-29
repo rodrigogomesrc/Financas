@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controle.TelaEditarCategoriaController">
+   <children>
+     
+      <TextField fx:id="nomeCategoria" layoutX="457.0" layoutY="131.0" onKeyTyped="#setNomeCategoria" prefHeight="26.0" prefWidth="227.0" promptText="Digite o nome aqui" /> 
+      <Label layoutX="307.0" layoutY="136.0" text="Nome da Categoria" />
+     
+      <Button fx:id="btnCadastrar" layoutX="394.0" layoutY="268.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="26.0" prefWidth="177.0" text="Cadastrar" />
+      <Label layoutX="306.0" layoutY="181.0" text="Descrição" />
+      <TextArea fx:id="descricaoCategoria" layoutX="457.0" layoutY="166.0" onKeyTyped="#setDescricao" prefHeight="83.0" prefWidth="227.0" promptText="Digite a descrição aqui..." />
+      <TextField fx:id="idCategoria" layoutX="457.0" layoutY="95.0" onKeyTyped="#setIdCategoria" prefHeight="26.0" prefWidth="227.0" promptText="Digite o id aqui" />
+      <Label layoutX="307.0" layoutY="100.0" text="Id da Categoria" />
+   </children>
+</AnchorPane>

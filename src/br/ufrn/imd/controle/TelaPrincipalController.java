@@ -110,23 +110,21 @@ public class TelaPrincipalController {
     @FXML
     void abrirTelaCadastroGasto(ActionEvent event) throws IOException {
     	
-    	/*
     	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(TelaCadastroClienteController.class.getResource("/br/ufrn/imd/visao/TelaRelatorioCliente.fxml"));
+    	loader.setLocation(TelaCadastroGastoController.class.getResource("/br/ufrn/imd/visao/TelaCadastroGasto.fxml"));
     	AnchorPane page = (AnchorPane) loader.load();
     	
     	// Criando um novo Stage
-    	Stage relatorioClienteStage = new Stage();
-    	relatorioClienteStage.setTitle("Relat�rio de Clientes");
-    	relatorioClienteStage.setResizable(false);
+    	Stage cadastroGastoStage = new Stage();
+    	cadastroGastoStage.setTitle("Cadastro de Gasto");
+    	cadastroGastoStage.setResizable(false);
     	Scene scene = new Scene(page);
-    	relatorioClienteStage.setScene(scene);
+    	cadastroGastoStage.setScene(scene);
     	
     	// Setando o Controle 
-    	TelaRelatorioClienteController controller = loader.getController();
-    	controller.setRelatorioClienteStage(relatorioClienteStage);
-    	relatorioClienteStage.showAndWait();
-    	*/
+    	TelaCadastroGastoController controller = loader.getController();
+    	controller.setCadastroGanhoStage(cadastroGastoStage);
+    	cadastroGastoStage.showAndWait();
     }
     
     @FXML
@@ -152,13 +150,43 @@ public class TelaPrincipalController {
 
 
     @FXML
-    void abrirTelaCadastroCategoria(ActionEvent event) {
-    	//
+    void abrirTelaCadastroCategoria(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(TelaCadastroCategoriaController.class.getResource("/br/ufrn/imd/visao/TelaCadastroCategoria.fxml"));
+    	AnchorPane page = (AnchorPane) loader.load();
+    	
+    	// Criando um novo Stage
+    	Stage cadastroCategoriaStage = new Stage();
+    	cadastroCategoriaStage.setTitle("Cadastro de Categoria");
+    	cadastroCategoriaStage.setResizable(false);
+    	Scene scene = new Scene(page);
+    	cadastroCategoriaStage.setScene(scene);
+    	
+    	// Setando o Controle 
+    	TelaCadastroCategoriaController controller = loader.getController();
+    	controller.setCadastroCategoriaStage(cadastroCategoriaStage);
+    	cadastroCategoriaStage.showAndWait();
     }
 
     @FXML
-    void abrirTelaEditarCategoria(ActionEvent event) {
-    	//
+    void abrirTelaEditarCategoria(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(TelaEditarCategoriaController.class.getResource("/br/ufrn/imd/visao/TelaEdicaoCategoria.fxml"));
+    	AnchorPane page = (AnchorPane) loader.load();
+    	
+    	// Criando um novo Stage
+    	Stage edicaoCategoriaStage = new Stage();
+    	edicaoCategoriaStage.setTitle("Editar Categoria");
+    	edicaoCategoriaStage.setResizable(false);
+    	Scene scene = new Scene(page);
+    	edicaoCategoriaStage.setScene(scene);
+    	
+    	// Setando o Controle 
+    	TelaEditarCategoriaController controller = loader.getController();
+    	controller.setEdicaoCategoriaStage(edicaoCategoriaStage);
+    	edicaoCategoriaStage.showAndWait();
     }
     
     @FXML
