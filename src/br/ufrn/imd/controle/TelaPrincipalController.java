@@ -190,8 +190,23 @@ public class TelaPrincipalController {
     }
     
     @FXML
-    void abrirTelaListarCategorias(ActionEvent event) {
-    	//
+    void abrirTelaListarCategorias(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(TelaListarCategoriaController.class.getResource("/br/ufrn/imd/visao/TelaListagemCategorias.fxml"));
+    	AnchorPane page = (AnchorPane) loader.load();
+    	
+    	// Criando um novo Stage
+    	Stage listagemCategoriaStage = new Stage();
+    	listagemCategoriaStage.setTitle("Listar Categorias");
+    	listagemCategoriaStage.setResizable(false);
+    	Scene scene = new Scene(page);
+    	listagemCategoriaStage.setScene(scene);
+    	
+    	// Setando o Controle 
+    	TelaListarCategoriaController controller = loader.getController();
+    	controller.setListagemCategoriaStage(listagemCategoriaStage);
+    	listagemCategoriaStage.showAndWait();
     }
 
 }
