@@ -1,5 +1,5 @@
 package br.ufrn.imd.controle;
 
-public class RelatorioMensal extends RelatorioGeral {
+public class RelatorioMensal extends Relatorio {
 
 }

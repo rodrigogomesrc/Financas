@@ -62,7 +62,7 @@ public class MovimentacaoDAO {
 		return null;
 	}
 	
-	public int getNewCategoriaId(){
+	public int getNovaMovimentacaoId(){
 		return this.movimentacoes.size();
 	}
 

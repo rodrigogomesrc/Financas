@@ -1,5 +1,16 @@
 package br.ufrn.imd.controle;
 
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
+import br.ufrn.imd.dao.CategoriaDAO;
+import br.ufrn.imd.dao.MovimentacaoDAO;
+import br.ufrn.imd.modelo.Categoria;
+import br.ufrn.imd.modelo.Movimentacao;
+import br.ufrn.imd.modelo.TipoMovimentacao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -27,7 +38,7 @@ public class TelaCadastroGastoController {
 
     @FXML
     void setData(InputMethodEvent event) {
-
+    	//
     }
 
     @FXML
@@ -42,6 +53,28 @@ public class TelaCadastroGastoController {
     
     @FXML
     void cadastrar(ActionEvent event) {
+    	
+    	LocalDate localDate = dataGasto.getValue();
+    	Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+    	Date date = Date.from(instant);
+    	
+    	CategoriaDAO categoriaDao = CategoriaDAO.getInstancia();
+    	MovimentacaoDAO movimentacaoDao = MovimentacaoDAO.getInstancia();
+    	Categoria categoria = categoriaDao.getCategoria(this.idCategoria.getText());
+    	
+    	if(categoria == null) {
+    		return;
+    	}
+    	
+    	Movimentacao gasto = new Movimentacao();
+    	gasto.setTipoMovimentacao(TipoMovimentacao.GASTO);
+    	gasto.setCategoriaId(categoria.getId());
+    	gasto.setId(String.valueOf(movimentacaoDao.getNovaMovimentacaoId()));
+    	gasto.setData(date);
+    	gasto.setValorMovimentacao(Double.valueOf(valorGasto.getText()));
+
+    	this.valorGasto.setText("");
+    	this.idCategoria.setText("");
 
     }
     

@@ -8,7 +8,7 @@ public class Movimentacao {
 	private Date data;
 	private String categoriaId;
 	private double valorMovimentacao;
-	private short tipoMovimentacao;
+	private TipoMovimentacao tipoMovimentacao;
 	
 	public String getId() {
 		return id;
@@ -42,11 +42,12 @@ public class Movimentacao {
 		this.valorMovimentacao = valorMovimentacao;
 	}
 	
-	public short getTipoMovimentacao() {
+	public TipoMovimentacao getTipoMovimentacao() {
 		return tipoMovimentacao;
 	}
 	
-	public void setTipoMovimentacao(short tipoMovimentacao) {
-		this.tipoMovimentacao = tipoMovimentacao;
+	public void setTipoMovimentacao(TipoMovimentacao tipo) {
+		this.tipoMovimentacao = tipo;
 	}
+	
 }

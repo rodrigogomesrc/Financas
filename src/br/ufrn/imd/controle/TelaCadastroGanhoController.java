@@ -1,5 +1,15 @@
 package br.ufrn.imd.controle;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
+import br.ufrn.imd.dao.CategoriaDAO;
+import br.ufrn.imd.dao.MovimentacaoDAO;
+import br.ufrn.imd.modelo.Categoria;
+import br.ufrn.imd.modelo.Movimentacao;
+import br.ufrn.imd.modelo.TipoMovimentacao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -42,6 +52,28 @@ public class TelaCadastroGanhoController {
     
     @FXML
     void cadastrar(ActionEvent event) {
+    	
+    	LocalDate localDate = dataGanho.getValue();
+    	Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+    	Date date = Date.from(instant);
+    	
+    	CategoriaDAO categoriaDao = CategoriaDAO.getInstancia();
+    	MovimentacaoDAO movimentacaoDao = MovimentacaoDAO.getInstancia();
+    	Categoria categoria = categoriaDao.getCategoria(this.idCategoria.getText());
+    	
+    	if(categoria == null) {
+    		return;
+    	}
+    	
+    	Movimentacao ganho = new Movimentacao();
+    	ganho.setTipoMovimentacao(TipoMovimentacao.GANHO);
+    	ganho.setCategoriaId(categoria.getId());
+    	ganho.setId(String.valueOf(movimentacaoDao.getNovaMovimentacaoId()));
+    	ganho.setData(date);
+    	ganho.setValorMovimentacao(Double.valueOf(valorGanho.getText()));
+
+    	this.valorGanho.setText("");
+    	this.idCategoria.setText("");
 
     }
     
