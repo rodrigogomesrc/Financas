@@ -41,5 +41,20 @@ public class CategoriaDAO {
 	public int getNewCategoriaId(){
 		return this.categorias.size();
 	}
+	
+	public void substituirCategoria(Categoria categoria) {
+		int arrayId = 0;
+		boolean achado = false;
+		
+		for(Categoria cat: this.categorias) {
+			if(cat.getId().equals(categoria.getId())) {
+				achado = true;
+				break;
+			}
+			arrayId++;
+		}
+		this.categorias.set(arrayId, categoria);
+		
+	}
 
 }
