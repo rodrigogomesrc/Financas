@@ -71,6 +71,7 @@ public class TelaCadastroGastoController {
     	gasto.setId(String.valueOf(movimentacaoDao.getNovaMovimentacaoId()));
     	gasto.setData(date);
     	gasto.setValorMovimentacao(Double.valueOf(valorGasto.getText()));
+    	movimentacaoDao.salvarMovimentacao(gasto);
 
     	this.valorGasto.setText("");
     	this.idCategoria.setText("");

@@ -71,6 +71,7 @@ public class TelaCadastroGanhoController {
     	ganho.setId(String.valueOf(movimentacaoDao.getNovaMovimentacaoId()));
     	ganho.setData(date);
     	ganho.setValorMovimentacao(Double.valueOf(valorGanho.getText()));
+    	movimentacaoDao.salvarMovimentacao(ganho);
 
     	this.valorGanho.setText("");
     	this.idCategoria.setText("");
