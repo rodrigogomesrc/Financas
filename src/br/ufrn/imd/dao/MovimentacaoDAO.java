@@ -1,8 +1,10 @@
 package br.ufrn.imd.dao;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import br.ufrn.imd.modelo.Movimentacao;
+import br.ufrn.imd.modelo.TipoMovimentacao;
 
 
 public class MovimentacaoDAO {
@@ -50,8 +52,25 @@ public class MovimentacaoDAO {
 		return null;
 	}
 	
-	public ArrayList<Movimentacao> getGastosMes() {
-		return null;
+	public ArrayList<Movimentacao> getGastosMes(int mes) {
+		
+		Calendar cal = Calendar.getInstance();
+		ArrayList<Movimentacao> gastosMes = new ArrayList<Movimentacao>();
+		for(Movimentacao mov: this.movimentacoes) {
+			
+			if(mov.getTipoMovimentacao() != TipoMovimentacao.GASTO) {
+				continue;
+			}
+		
+			cal.setTime(mov.getData());
+			int month = cal.get(Calendar.MONTH);
+			
+			if(month == mes) {
+				gastosMes.add(mov);
+			}
+		}
+		
+		return gastosMes;
 	}
 	
 	public ArrayList<Movimentacao> getGanhosAno() {
@@ -59,6 +78,27 @@ public class MovimentacaoDAO {
 	}
 	
 	public ArrayList<Movimentacao> getGanhosMes() {
+	
+		/*
+		Calendar cal = Calendar.getInstance();
+		ArrayList<Movimentacao> gastosMes = new ArrayList<Movimentacao>();
+		for(Movimentacao mov: this.movimentacoes) {
+			
+			if(mov.getTipoMovimentacao() != TipoMovimentacao.GASTO) {
+				continue;
+			}
+		
+			cal.setTime(mov.getData());
+			int month = cal.get(Calendar.MONTH);
+			
+			if(month == mes) {
+				gastosMes.add(mov);
+			}
+		}
+		
+		return gastosMes;
+		*/
+		
 		return null;
 	}
 	

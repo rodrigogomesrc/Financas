@@ -1,6 +1,5 @@
 package br.ufrn.imd.controle;
 
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;

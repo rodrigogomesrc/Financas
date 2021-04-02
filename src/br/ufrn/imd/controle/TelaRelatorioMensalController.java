@@ -6,6 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import br.ufrn.imd.dao.MovimentacaoDAO;
 import javafx.event.ActionEvent;
 
 public class TelaRelatorioMensalController {
@@ -49,11 +50,25 @@ public class TelaRelatorioMensalController {
 
     @FXML
     void listarGastos(ActionEvent event) {
+    	
+    	RelatorioMensal relatorio = new RelatorioMensal();
+    	String mes = this.mesTxt.getText();
+    	MovimentacaoDAO dao = MovimentacaoDAO.getInstancia();
+    	
+    	//testar se o mês é realmente um número.
+    	
+    	if(mesTxt.getText().equals("") || mesTxt.getText() == null) {
+    		return;
+    	}
+    	
+    	//Arraylist<Movimentacao> gastosMes = dao.getGastosMes()
+    	
 
     }
 
     @FXML
     void listarGastosCategoria(ActionEvent event) {
+    	
 
     }
 
@@ -64,14 +79,12 @@ public class TelaRelatorioMensalController {
     
     @FXML
     void setAno(KeyEvent event) {
-    	System.out.println("testando mostrar o texto do ano: ");
-    	System.out.println(anoTxt.getText());
+    	
     }
 
     @FXML
     void setMes(KeyEvent event) {
-    	System.out.println("testando mostrar o texto do mês: ");
-    	System.out.println(mesTxt.getText());
+    	
 
     }
     
