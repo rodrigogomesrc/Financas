@@ -40,14 +40,50 @@ public class TelaRelatorioMensalController {
 
     @FXML
     void listarGanhos(ActionEvent event) {
+    	
+    	relMensalTextArea.setText("");
+    	
+    	RelatorioMensal relatorio = new RelatorioMensal();
+    	String mes = this.mesTxt.getText();
+    	String ano = this.anoTxt.getText();
+    	
+    	MovimentacaoDAO dao = MovimentacaoDAO.getInstancia();
+    	relatorio.carregarMovimentacoes(dao.getGanhosMes(Integer.valueOf(mes), Integer.valueOf(ano)));
+    
+    	relMensalTextArea.setText(relatorio.listarGanhos());
 
     }
 
     @FXML
     void listarGanhosCategoria(ActionEvent event) {
-
+    	
+    	String mes = this.mesTxt.getText();
+    	String ano = this.anoTxt.getText();
+    	
+    	relMensalTextArea.setText("");
+		RelatorioMensal relatorio = new RelatorioMensal();
+		
+		MovimentacaoDAO dao = MovimentacaoDAO.getInstancia();
+		relatorio.carregarMovimentacoes(dao.getGanhosMes(Integer.valueOf(mes), Integer.valueOf(ano)));
+		relMensalTextArea.setText(relatorio.getGanhosPorCategoria());
+		
     }
 
+    @FXML
+    void listarGastosCategoria(ActionEvent event) {
+    	
+    	String mes = this.mesTxt.getText();
+    	String ano = this.anoTxt.getText();
+    	
+    	relMensalTextArea.setText("");
+		RelatorioMensal relatorio = new RelatorioMensal();
+		
+		MovimentacaoDAO dao = MovimentacaoDAO.getInstancia();
+		relatorio.carregarMovimentacoes(dao.getGastosMes(Integer.valueOf(mes), Integer.valueOf(ano)));
+		relMensalTextArea.setText(relatorio.getGastosPorCategoria());
+
+    }
+    
     @FXML
     void listarGastos(ActionEvent event) {
     	
@@ -59,20 +95,21 @@ public class TelaRelatorioMensalController {
     	
     	MovimentacaoDAO dao = MovimentacaoDAO.getInstancia();
     	relatorio.carregarMovimentacoes(dao.getGastosMes(Integer.valueOf(mes), Integer.valueOf(ano)));
-    
     	relMensalTextArea.setText(relatorio.listarGastos());
     	
     }
 
     @FXML
-    void listarGastosCategoria(ActionEvent event) {
-    	
-
-    }
-
-    @FXML
     void listarInfogeral(ActionEvent event) {
-
+    	
+    	relMensalTextArea.setText("");
+		Relatorio relatorio = new Relatorio();
+		String mes = this.mesTxt.getText();
+    	String ano = this.anoTxt.getText();
+    	
+		MovimentacaoDAO dao = MovimentacaoDAO.getInstancia();
+		relatorio.carregarMovimentacoes(dao.getMovimentacoesMes(Integer.valueOf(mes), Integer.valueOf(ano)));
+		relMensalTextArea.setText(relatorio.getRelatorioGeral());
     }
     
     @FXML

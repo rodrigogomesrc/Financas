@@ -40,16 +40,39 @@ public class MovimentacaoDAO {
 		return null;
 	}
 	
-	public ArrayList<Movimentacao> getMovimentacoesAno() {
-		return null;
+	public ArrayList<Movimentacao> getMovimentacoesAno(int ano) {
+		
+		Calendar cal = Calendar.getInstance();
+		ArrayList<Movimentacao> movimentacoesAno = new ArrayList<Movimentacao>();
+		for(Movimentacao mov: this.movimentacoes) {
+	
+			cal.setTime(mov.getData());
+			int year = cal.get(Calendar.YEAR);
+			
+			if(ano == year) {
+				movimentacoesAno.add(mov);
+			}
+		}
+		
+		return movimentacoesAno;
 	}
 	
-	public ArrayList<Movimentacao> getMovimentacoesMes() {
-		return null;
-	}
+	public ArrayList<Movimentacao> getMovimentacoesMes(int mes, int ano) {
+		
+		Calendar cal = Calendar.getInstance();
+		ArrayList<Movimentacao> movimentacoesMes = new ArrayList<Movimentacao>();
+		for(Movimentacao mov: this.movimentacoes) {
 	
-	public ArrayList<Movimentacao> getGastosAno() {
-		return null;
+			cal.setTime(mov.getData());
+			int month = cal.get(Calendar.MONTH) + 1;
+			int year = cal.get(Calendar.YEAR);
+			
+			if(month == mes  && ano == year) {
+				movimentacoesMes.add(mov);
+			}
+		}
+		
+		return movimentacoesMes;
 	}
 	
 	public ArrayList<Movimentacao> getGastosMes(int mes, int ano) {
@@ -74,12 +97,8 @@ public class MovimentacaoDAO {
 		return gastosMes;
 	}
 	
-	public ArrayList<Movimentacao> getGanhosAno() {
-		return null;
-	}
-	
 	public ArrayList<Movimentacao> getGanhosMes(int mes, int ano) {
-	
+		
 		Calendar cal = Calendar.getInstance();
 		ArrayList<Movimentacao> ganhosMes = new ArrayList<Movimentacao>();
 		for(Movimentacao mov: this.movimentacoes) {
@@ -93,6 +112,47 @@ public class MovimentacaoDAO {
 			int year = cal.get(Calendar.YEAR);
 			
 			if(month == mes && year == ano) {
+				ganhosMes.add(mov);
+			}
+		}
+		return ganhosMes;
+	}
+	
+	public ArrayList<Movimentacao> getGastosAno(int ano) {
+		
+		Calendar cal = Calendar.getInstance();
+		ArrayList<Movimentacao> gastosMes = new ArrayList<Movimentacao>();
+		for(Movimentacao mov: this.movimentacoes) {
+			
+			if(mov.getTipoMovimentacao() != TipoMovimentacao.GASTO) {
+				continue;
+			}
+			
+			cal.setTime(mov.getData());
+			int year = cal.get(Calendar.YEAR);
+			
+			if(ano == year) {
+				gastosMes.add(mov);
+			}
+		}
+		
+		return gastosMes;
+	}
+	
+	public ArrayList<Movimentacao> getGanhosAno(int ano) {
+		
+		Calendar cal = Calendar.getInstance();
+		ArrayList<Movimentacao> ganhosMes = new ArrayList<Movimentacao>();
+		for(Movimentacao mov: this.movimentacoes) {
+			
+			if(mov.getTipoMovimentacao() != TipoMovimentacao.GANHO) {
+				continue;
+			}
+		
+			cal.setTime(mov.getData());
+			int year = cal.get(Calendar.YEAR);
+			
+			if(year == ano) {
 				ganhosMes.add(mov);
 			}
 		}
