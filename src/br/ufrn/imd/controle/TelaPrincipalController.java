@@ -69,7 +69,7 @@ public class TelaPrincipalController {
     	
     	// Criando um novo Stage
     	Stage relatorioAnualStage = new Stage();
-    	relatorioAnualStage.setTitle("Relatorio Geral");
+    	relatorioAnualStage.setTitle("Relatorio Anual");
     	relatorioAnualStage.setResizable(false);
     	Scene scene = new Scene(page);
     	relatorioAnualStage.setScene(scene);

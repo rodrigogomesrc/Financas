@@ -6,13 +6,22 @@ import br.ufrn.imd.modelo.Movimentacao;
 import br.ufrn.imd.modelo.TipoMovimentacao;
 
 public class RelatorioMensal extends Relatorio {
-
+	
+	
 	public String listarGastos() {
+		return this.listarGastos(true);
+	}
+
+	public String listarGastos(Boolean header) {
 		if(this.movimentacoes == null || this.movimentacoes.size() == 0) {
-			return "Não há gastos para mostrar";
+			return "Não há gastos para mostrar\n";
 		}
 		
-		String output = "********** GASTOS **********\n";
+		String output = "";
+		if(header) {
+			output += "********** GASTOS **********\n";
+		}
+		
 		short itens = 0;
 		
 		for(Movimentacao mov: this.movimentacoes) {
@@ -25,12 +34,20 @@ public class RelatorioMensal extends Relatorio {
 	}
 	
 	public String listarGanhos() {
+		return this.listarGanhos(true);
+	}
+	
+	public String listarGanhos(Boolean header) {
 		
 		if(this.movimentacoes == null || this.movimentacoes.size() == 0) {
-			return "Não há ganhos para mostrar";
+			return "Não há ganhos para mostrar\n";
 		}
 		
-		String output = "********** GANHOS **********\n";
+		String output = "";
+		if(header) {
+			output += "********** GANHOS **********\n";
+		}
+		
 		short itens = 0;
 		
 		for(Movimentacao mov: this.movimentacoes) {

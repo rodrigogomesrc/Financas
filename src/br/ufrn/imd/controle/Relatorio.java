@@ -17,13 +17,17 @@ public class Relatorio {
 	}
 	
 	public String getGanhosPorCategoria() {
+		return this.getGanhosPorCategoria(true);
+	}
+	
+	public String getGanhosPorCategoria(Boolean header) {
 		if(this.movimentacoes == null || this.movimentacoes.size() == 0) {
-			return "Não há ganhos para mostrar";
+			return "Não há ganhos para mostrar\n";
 		}
 		
 		ArrayList<Movimentacao> ganhos = this.getGanhos();
 		if(ganhos == null || ganhos.size() == 0) {
-			return "Não há ganhos para mostrar";
+			return "Não há ganhos para mostrar\n";
 		}
 		
 		CategoriaDAO categoriaDAO = CategoriaDAO.getInstancia();
@@ -48,7 +52,11 @@ public class Relatorio {
 			ganhosPorCategoriaPorcentagem.put(cat.getId(), porcentagem);
 		}
 		
-		String output = "********** GANHOS POR CATEGORIA **********\n";
+		String output = "";
+		if(header) {
+			output += "********** GANHOS POR CATEGORIA **********\n";
+		}
+		
 		for(Categoria cat: categorias) {
 			output += "\n";
 			output += 
@@ -63,14 +71,18 @@ public class Relatorio {
 	}
 	
 	public String getGastosPorCategoria() {
+		return this.getGanhosPorCategoria(true);
+	}
+	
+	public String getGastosPorCategoria(Boolean header) {
 		
 		if(this.movimentacoes == null || this.movimentacoes.size() == 0) {
-			return "Não há gastos para mostrar";
+			return "Não há gastos para mostrar\n";
 		}
 		
 		ArrayList<Movimentacao> gastos = this.getGastos();
 		if(gastos == null || gastos.size() == 0) {
-			return "Não há gastos para mostrar";
+			return "Não há gastos para mostrar\n";
 		}
 		
 		CategoriaDAO categoriaDAO = CategoriaDAO.getInstancia();
@@ -95,7 +107,11 @@ public class Relatorio {
 			gastoPorCategoriaPorcentagem.put(cat.getId(), porcentagem);
 		}
 		
-		String output = "********** GASTOS POR CATEGORIA **********\n";
+		String output = "";
+		if(header) {
+			output += "********** GASTOS POR CATEGORIA **********\n";
+		}
+		
 		for(Categoria cat: categorias) {
 			output += "\n";
 			output += 
@@ -110,11 +126,19 @@ public class Relatorio {
 	}
 	
 	public String getRelatorioGeral() {
-		if(this.movimentacoes == null) {
-			return "";
+		return this.getRelatorioGeral(true);
+	}
+	
+	public String getRelatorioGeral(Boolean header) {
+		if(this.movimentacoes == null || this.movimentacoes.size() == 0) {
+			return "Sem dados para mostrar\n";
 		}
 		
-		String output = "********** RELATÓRIO GERAL **********\n";
+		String output = "";
+		if(header) {
+			output += "********** RELATÓRIO GERAL **********\n";
+		}
+		
 		output += "\n";
 		output += "Gastos Totais: " + String.valueOf(this.getGastosTotais()) + "\n";
 		output += "Ganhos Totais: " + String.valueOf(this.getGanhosTotais()) + "\n";

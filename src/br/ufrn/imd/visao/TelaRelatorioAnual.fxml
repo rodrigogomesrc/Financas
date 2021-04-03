@@ -27,7 +27,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <TextArea id="textArea" fx:id="relMensalTextArea" editable="false" layoutX="196.0" layoutY="71.0" prefHeight="415.0" prefWidth="790.0" text="" />
+      <TextArea id="textArea" fx:id="relAnualTextArea" editable="false" layoutX="196.0" layoutY="71.0" prefHeight="415.0" prefWidth="790.0" text="" />
       <TextField id="anoTxt" fx:id="anoTxt" layoutX="673.0" layoutY="26.0" onKeyTyped="#setAno" promptText="Digite o Ano" />
       <Label layoutX="415.0" layoutY="31.0" text="Digite o Ano para consulta">
          <font>

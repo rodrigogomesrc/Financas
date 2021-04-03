@@ -1,5 +1,6 @@
 package br.ufrn.imd.controle;
 
+import br.ufrn.imd.dao.MovimentacaoDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,35 +26,51 @@ public class TelaRelatorioAnualController {
     private Button btnListarGeralPorMes;
 
     @FXML
-    private TextArea relMensalTextArea;
+    private TextArea relAnualTextArea;
     
     @FXML
     private TextField anoTxt;
 
     @FXML
     void listarGanhosCategoria(ActionEvent event) {
-
+    	
+    	relAnualTextArea.setText("");
+		RelatorioAnual relatorio = new RelatorioAnual();
+		relatorio.setAno(Integer.valueOf(this.anoTxt.getText()));
+		relAnualTextArea.setText(relatorio.getGanhosPorCategoria());
     }
 
     @FXML
     void listarGastosCategoria(ActionEvent event) {
 
+    	relAnualTextArea.setText("");
+		RelatorioAnual relatorio = new RelatorioAnual();
+		relatorio.setAno(Integer.valueOf(this.anoTxt.getText()));
+		relAnualTextArea.setText(relatorio.getGastosPorCategoria());
     }
 
     @FXML
     void listarGeralAno(ActionEvent event) {
 
+    	relAnualTextArea.setText("");
+		RelatorioAnual relatorio = new RelatorioAnual();
+		relatorio.setAno(Integer.valueOf(this.anoTxt.getText()));
+		relAnualTextArea.setText(relatorio.getRelatorioGeral());
     }
 
     @FXML
     void listarGeralPorMes(ActionEvent event) {
+    	
+    	relAnualTextArea.setText("");
+		RelatorioAnual relatorio = new RelatorioAnual();
+		relatorio.setAno(Integer.valueOf(this.anoTxt.getText()));
+		relAnualTextArea.setText(relatorio.relatorioGeralPorMes());
 
     }
     
     @FXML
     void setAno(KeyEvent event) {
-    	System.out.println("Ano do relatório anual: ");
-    	System.out.println(anoTxt.getText());
+    	
     }
     
     public void setRelatorioAnualStage(Stage relatorioAnualStage) {
