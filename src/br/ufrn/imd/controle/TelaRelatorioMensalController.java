@@ -51,19 +51,17 @@ public class TelaRelatorioMensalController {
     @FXML
     void listarGastos(ActionEvent event) {
     	
+    	relMensalTextArea.setText("");
+    	
     	RelatorioMensal relatorio = new RelatorioMensal();
     	String mes = this.mesTxt.getText();
+    	String ano = this.anoTxt.getText();
+    	
     	MovimentacaoDAO dao = MovimentacaoDAO.getInstancia();
+    	relatorio.carregarMovimentacoes(dao.getGastosMes(Integer.valueOf(mes), Integer.valueOf(ano)));
+    
+    	relMensalTextArea.setText(relatorio.listarGastos());
     	
-    	//testar se o mês é realmente um número.
-    	
-    	if(mesTxt.getText().equals("") || mesTxt.getText() == null) {
-    		return;
-    	}
-    	
-    	//Arraylist<Movimentacao> gastosMes = dao.getGastosMes()
-    	
-
     }
 
     @FXML

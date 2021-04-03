@@ -8,8 +8,8 @@ import br.ufrn.imd.modelo.TipoMovimentacao;
 public class RelatorioMensal extends Relatorio {
 
 	public String listarGastos() {
-		if(this.movimentacoes == null) {
-			return "";
+		if(this.movimentacoes == null || this.movimentacoes.size() == 0) {
+			return "Não há gastos para mostrar";
 		}
 		
 		String output = "********** GASTOS **********\n";
@@ -21,17 +21,13 @@ public class RelatorioMensal extends Relatorio {
 			}
 		}
 		
-		if(itens > 0) {
-			output += "=============================\n";
-		}
-		
 		return output;
 	}
 	
 	public String listarGanhos() {
 		
-		if(this.movimentacoes == null) {
-			return "";
+		if(this.movimentacoes == null || this.movimentacoes.size() == 0) {
+			return "Não há ganhos para mostrar";
 		}
 		
 		String output = "********** GANHOS **********\n";
@@ -44,9 +40,6 @@ public class RelatorioMensal extends Relatorio {
 			}
 		}
 		
-		if(itens > 0) {
-			output += "=============================\n";
-		}
 		return output;
 	}
 	
@@ -57,10 +50,10 @@ public class RelatorioMensal extends Relatorio {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String dataString = sdf.format(movimentacao.getData());
 		
-		output += "=============================\n";
 		output += "Data: " + dataString + "\n";
 		output += "Categoria: " + dao.getCategoria(movimentacao.getCategoriaId()).getNomeCategoria() + "\n";
 		output += "Valor: " + String.valueOf(movimentacao.getValorMovimentacao()) + "\n";
+		output += "=============================\n";
 		
 		return output;
 	}
