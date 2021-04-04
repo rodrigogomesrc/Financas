@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 import br.ufrn.imd.modelo.Categoria;
 import br.ufrn.imd.modelo.DadosCSV;
+import br.ufrn.imd.modelo.Movimentacao;
+import br.ufrn.imd.modelo.TipoMovimentacao;
 
 
 public class CategoriaDAO implements DadosCSV{
@@ -48,7 +50,12 @@ public class CategoriaDAO implements DadosCSV{
 	}
 	
 	public int getNewCategoriaId(){
-		return this.categorias.size();
+		if(this.categorias.size() == 0) {
+			return 0;
+		} else {
+			Categoria cat = this.categorias.get(this.categorias.size() -1);
+			return Integer.valueOf(cat.getId()) + 1;
+		}
 	}
 	
 	public void substituirCategoria(Categoria categoria) {
@@ -77,6 +84,15 @@ public class CategoriaDAO implements DadosCSV{
 				csvWriter.append(cat.getNomeCategoria());
 				csvWriter.append(",");
 				csvWriter.append(cat.getDescricaoCategoria());
+				csvWriter.append(",");
+				
+				if(cat.getTipoCategoria() == TipoMovimentacao.GASTO) {
+					csvWriter.append("0");
+					
+				} else {
+					csvWriter.append("1");
+				}
+				
 				csvWriter.append("\n");
 			}
 			
@@ -86,7 +102,6 @@ public class CategoriaDAO implements DadosCSV{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
@@ -110,6 +125,14 @@ public class CategoriaDAO implements DadosCSV{
 			    categoria.setId(data[0]);
 			    categoria.setNomeCategoria(data[1]);
 			    categoria.setDescricaoCategoria(data[2]);
+			    
+			    if(data[3].equals("0")) {
+			    	categoria.setTipoCategoria(TipoMovimentacao.GASTO);
+			    	
+			    } else {
+			    	categoria.setTipoCategoria(TipoMovimentacao.GANHO);
+			    }
+			    
 			    this.salvarCategoria(categoria);
 			}
 			

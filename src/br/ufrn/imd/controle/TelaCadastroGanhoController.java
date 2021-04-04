@@ -61,7 +61,7 @@ public class TelaCadastroGanhoController {
     	MovimentacaoDAO movimentacaoDao = MovimentacaoDAO.getInstancia();
     	Categoria categoria = categoriaDao.getCategoria(this.idCategoria.getText());
     	
-    	if(categoria == null) {
+    	if(categoria == null || categoria.getTipoCategoria() == TipoMovimentacao.GASTO) {
     		return;
     	}
     	

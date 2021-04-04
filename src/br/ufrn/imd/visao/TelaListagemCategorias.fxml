@@ -6,7 +6,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controle.TelaListarCategoriaController">
    <children>
-      <Button fx:id="btnListar" layoutX="47.0" layoutY="35.0" mnemonicParsing="false" onAction="#listarCategorias" prefHeight="26.0" prefWidth="177.0" text="Listar Categorias" />
+      <Button fx:id="btnListarGastos" layoutX="47.0" layoutY="35.0" mnemonicParsing="false" onAction="#listarCategoriasGastos" prefHeight="26.0" prefWidth="239.0" text="Listar Categorias de Gastos" />
       <TextArea fx:id="listagemCategorias" editable="false" layoutX="47.0" layoutY="77.0" prefHeight="392.0" prefWidth="907.0" />
+      <Button fx:id="btnListarGanhos" layoutX="311.0" layoutY="35.0" mnemonicParsing="false" onAction="#listarCategoriasGanhos" prefHeight="26.0" prefWidth="239.0" text="Listar Categorias de Ganhos" />
    </children>
 </AnchorPane>

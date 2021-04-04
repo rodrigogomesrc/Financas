@@ -5,6 +5,7 @@ public class Categoria {
 	private String id;
 	private String nomeCategoria;
 	private String descricaoCategoria;
+	private TipoMovimentacao tipoCategoria;
 	
 	public String getId() {
 		return id;
@@ -28,6 +29,14 @@ public class Categoria {
 	
 	public void setDescricaoCategoria(String descricaoCategoria) {
 		this.descricaoCategoria = descricaoCategoria;
+	}
+
+	public TipoMovimentacao getTipoCategoria() {
+		return tipoCategoria;
+	}
+
+	public void setTipoCategoria(TipoMovimentacao tipoCategoria) {
+		this.tipoCategoria = tipoCategoria;
 	}
 	
 }

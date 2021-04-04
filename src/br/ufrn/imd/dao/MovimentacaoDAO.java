@@ -172,7 +172,12 @@ public class MovimentacaoDAO implements DadosCSV{
 	}
 	
 	public int getNovaMovimentacaoId(){
-		return this.movimentacoes.size();
+		if(this.movimentacoes.size() == 0) {
+			return 0;
+		} else {
+			Movimentacao mov = this.movimentacoes.get(this.movimentacoes.size() -1);
+			return Integer.valueOf(mov.getId()) + 1;
+		}
 	}
 
 	@Override
@@ -227,6 +232,7 @@ public class MovimentacaoDAO implements DadosCSV{
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			return;
 		}
 		
 		try {
